@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 from PIL import Image
 import shortuuid
 import os
@@ -51,6 +50,7 @@ class GroupMessage(models.Model):
             return f"{self.author.username} : {self.body}"
         elif self.file:
             return f"{self.author.username} : {self.filename}"
+        return f"{self.author.username} : 'Blank message'"
 
     class Meta:
         ordering = ["-created"]

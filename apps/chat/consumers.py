@@ -5,8 +5,7 @@ from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
 import json
 
-from .models import ChatGroup
-from .models import GroupMessage
+from .models import ChatGroup, GroupMessage
 
 
 class ChatroomConsumer(WebsocketConsumer):
@@ -42,14 +41,9 @@ class ChatroomConsumer(WebsocketConsumer):
         body = text_data_json["body"]
 
         message = GroupMessage.objects.create(
-            body=body,
-            author=self.user,
-            group=self.chatroom,
+            body=body, author=self.user, group=self.chatroom
         )
-        event = {
-            "type": "message_handler",
-            "message_id": message.id,
-        }
+        event = {"type": "message_handler", "message_id": message.id}
         async_to_sync(self.channel_layer.group_send)(self.chatroom_name, event)
 
     def message_handler(self, event):
@@ -60,9 +54,8 @@ class ChatroomConsumer(WebsocketConsumer):
             "user": self.user,
             "chat_group": self.chatroom,
         }
-        html = render_to_string(
-            "chat/partials/chat_message.html", context=context
-        )
+        template_name = "chat/partials/chat_message.html"
+        html = render_to_string(template_name=template_name, context=context)
         self.send(text_data=html)
 
     def update_online_count(self):
@@ -85,7 +78,8 @@ class ChatroomConsumer(WebsocketConsumer):
             "chat_group": self.chatroom,
             "users": users,
         }
-        html = render_to_string("chat/partials/online_count.html", context)
+        template_name = "chat/partials/online_count.html"
+        html = render_to_string(template_name=template_name, context=context)
         self.send(text_data=html)
 
 
@@ -151,7 +145,6 @@ class OnlineStatusConsumer(WebsocketConsumer):
             "public_chat_users": public_chat_users,
             "user": self.user,
         }
-        html = render_to_string(
-            "chat/partials/online_status.html", context=context
-        )
+        template_name = "chat/partials/online_status.html"
+        html = render_to_string(template_name=template_name, context=context)
         self.send(text_data=html)

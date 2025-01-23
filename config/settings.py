@@ -33,10 +33,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_cleanup.apps.CleanupConfig",
     "django.contrib.sites",
+    # Add package
     "allauth",
     "allauth.account",
+    "allauth.socialaccount",
     "django_htmx",
     "django_browser_reload",
+    "colorfield",
     # My apps
     "apps.home.apps.HomeConfig",
     "apps.users.apps.UsersConfig",
@@ -83,6 +86,22 @@ TEMPLATES = [
 
 # WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
+
+if ENVIRONMENT == "development":
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels.layers.InMemoryChannelLayer",
+        }
+    }
+else:
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels_redis.core.RedisChannelLayer",
+            "CONFIG": {
+                "hosts": [(env("REDIS_URL"))],
+            },
+        },
+    }
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

@@ -1,0 +1,38 @@
+<div x-data="{ modal_open: false }">
+    <!-- Button to open the modal -->
+    <a @click="modal_open = true" class="cursor-pointer flex justify-end pt-2 pb-4 text-sm text-gray-400 hover:text-red-500">Leave Chat</a>
+
+    <!-- Modale -->
+    <div 
+        x-show="modal_open" 
+        x-transition:enter="ease-out duration-300" 
+        x-transition:enter-start="opacity-0 scale-95" 
+        x-transition:enter-end="opacity-100 scale-100" 
+        x-transition:leave="ease-in duration-200" 
+        x-transition:leave-start="opacity-100 scale-100" 
+        x-transition:leave-end="opacity-0 scale-95"
+        class="fixed inset-0 z-50 flex items-center justify-center"
+    >
+        <!-- Dark background -->
+        <div 
+            class="fixed inset-0 bg-gray-800 bg-opacity-80"
+            @click="modal_open = false"
+            x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-80"
+            x-transition:leave-end="opacity-0"
+        ></div>
+
+        <!-- Content of the modal -->
+        <div 
+            class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative z-10"
+            @click.away="modal_open = false"
+        >
+            <h1 class="text-lg font-semibold">Leave this chat?</h1>
+            <form method="POST" action="{% url 'chat:chatroom-leave' chat_group.group_name %}">
+                {% csrf_token %}
+                <button type="submit" class="button-red mt-4">Yes, I want to leave</button>
+                <a class="button button-gray ml-1 cursor-pointer" @click="modal_open = false">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

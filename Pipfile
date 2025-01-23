@@ -14,6 +14,8 @@ psycopg2-binary = "*"
 django-browser-reload = "*"
 channels = {extras = ["daphne"], version = "*"}
 shortuuid = "*"
+channels-redis = "*"
+django-colorfield = "*"
 
 [dev-packages]
 

@@ -1,18 +1,12 @@
-from django.shortcuts import get_object_or_404
-from django.shortcuts import render
-from django.shortcuts import redirect
-from django.http import HttpResponse
-from django.http import Http404
+from django.shortcuts import get_object_or_404, render, redirect
+from django.http import HttpResponse, Http404
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
-from .models import ChatGroup
-from .models import GroupMessage
-from .forms import ChatmessageCreateForm
-from .forms import NewGroupForm
-from .forms import ChatRoomEditForm
+from .models import ChatGroup, GroupMessage
+from .forms import ChatmessageCreateForm, NewGroupForm, ChatRoomEditForm
 
 
 @login_required

@@ -1,7 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import GroupMessage
-from .models import ChatGroup
+from .models import GroupMessage, ChatGroup
 
 
 class ChatmessageCreateForm(ModelForm):
