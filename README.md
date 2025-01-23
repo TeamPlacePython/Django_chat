@@ -1,4 +1,4 @@
-<h1 align="center">Welcome on the readme Django Tailwind starter 👋</h1>
+<h1 align="center">Welcome on the readme Django Chat 👋</h1>
 <p align="center">
   <a href="https://twitter.com/LaurentJouron">
     <img alt="Twitter: LaurentJouron" 
@@ -18,9 +18,20 @@ ___________
 or
 * git clone command (need git to be installed) and remove git folder afterwards
 ```
-git clone https://github.com/LaurentJouron/Django_Tailwind_starter.git . && rm -rf .git
+git clone https://github.com/LaurentJouron/Django_chat.git
 ```
-
+```
+git remote remove origin
+```
+```
+git remote add origin [repository_name]
+```
+```
+git remote -v
+```
+```
+git push -u origin main
+```
 <h1 align="center">Setup</h1>
 
 * Create Virtual Environment
