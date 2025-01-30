@@ -26,7 +26,7 @@
     <meta property="og:type" content="website">
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="">
     <meta name="twitter:title" content="{% block twitter_title %}{% endblock twitter_title %}">
     <meta name="twitter:description" content="{% block twitter_description %}{% endblock twitter_description %}">
     <meta name="twitter:image" content="{{ SITE_URL }}{% block twitter_image %}{% endblock twitter_image %}">
@@ -56,9 +56,8 @@
 
     {% block layout %}{% endblock %}
 
-    {% if user.is_authenticated %}
-    <footer hx-ext="ws" ws-connect="/ws/online-status/"></footer>
-    {% endif %}
+    {% if user.is_authenticated %}<footer hx-ext="ws" ws-connect="/ws/online-status/"></footer>{% endif %}
+
     {% block javascript %}{% endblock javascript %}
 
 </body>

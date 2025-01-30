@@ -5,6 +5,7 @@ env = Env()
 env.read_env()
 
 ENVIRONMENT = env("ENVIRONMENT", default="development")
+# ENVIRONMENT = "production"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,9 +19,11 @@ if ENVIRONMENT == "development":
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*"]
+INTERNAL_IPS = ("127.0.0.1", "localhost:8000")
 
 CSRF_TRUSTED_ORIGINS = ["https://*"]
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -59,6 +62,7 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 AUTHENTICATION_BACKENDS = [

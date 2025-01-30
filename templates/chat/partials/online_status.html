@@ -15,6 +15,7 @@
 
 
 <ul id="chats-list" class="hoverlist [&>li>a]:justify-end">
+    <li><a href="{% url 'chat:new-groupchat' %}">Create Chat</a></li>
     <li class="relative">
         {% if public_chat_users %}
             <div class="green-dot absolute top-1 left-1"></div>

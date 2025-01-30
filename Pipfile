@@ -16,6 +16,7 @@ channels = {extras = ["daphne"], version = "*"}
 shortuuid = "*"
 channels-redis = "*"
 django-colorfield = "*"
+whitenoise = "*"
 
 [dev-packages]
 
