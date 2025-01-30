@@ -3,8 +3,10 @@ from django.http import HttpResponse, Http404
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
+
 from .models import ChatGroup, GroupMessage
 from .forms import ChatmessageCreateForm, NewGroupForm, ChatRoomEditForm
 
@@ -80,7 +82,6 @@ def get_or_create_chatroom(request, username):
     else:
         chatroom = ChatGroup.objects.create(is_private=True)
         chatroom.members.add(other_user, request.user)
-
     return redirect("chat:chatroom", chatroom.group_name)
 
 

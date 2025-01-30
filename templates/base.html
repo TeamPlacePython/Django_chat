@@ -36,7 +36,7 @@
     {% endblock seo_meta %}
     
     <!-- Title and logo in the navigation tab -->
-    <title>Chat Défilepsie</title>
+    <title>Défilepsie - {% block title %}{% endblock title %}</title>
     <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
 
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -56,6 +56,9 @@
 
     {% block layout %}{% endblock %}
 
+    {% if user.is_authenticated %}
+    <footer hx-ext="ws" ws-connect="/ws/online-status/"></footer>
+    {% endif %}
     {% block javascript %}{% endblock javascript %}
 
 </body>

@@ -1,5 +1,7 @@
 {% extends 'layouts/box.html' %}
 
+{% block title %}{% if user.profile.displayname %}Settings {{ user.profile.displayname }}{% endif %}{% endblock title %}
+
 {% block content %}
 <h1 class="mb-8">Account Settings</h1>
 <table class="w-full text-sm text-left text-gray-500">

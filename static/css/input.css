@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Exemple d'utilisation */
+.bg-primary {
+    background-color: var(--primary-color);
+}
+  
+.text-secondary {
+    color: var(--secondary-color);
+}
+
 [x-cloak] { 
     display: none !important; 
 }
@@ -18,13 +27,13 @@ p {
     @apply mb-4
 }
 .button, button, [type='submit'], [type='button'] {
-    @apply bg-indigo-600 text-white font-bold rounded-lg shadow-lg transition-all cursor-pointer
+    @apply bg-defilepsie_blue text-white font-bold rounded-lg shadow-lg transition-all cursor-pointer
 }
 .button, button a, [type='submit'], [type='button'] {
     @apply px-6 py-4 inline-block 
 }
 .button:hover, button:hover, [type='submit']:hover, [type='button']:hover {
-    @apply bg-indigo-700
+    @apply bg-defilepsie_blue_secondary
 }
 .button:active, button:active, [type='submit']:active, [type='button']:active {
     @apply scale-95
@@ -33,20 +42,21 @@ p {
     @apply bg-red-700
 }
 .button.alert:hover, button.alert:hover {
-    @apply bg-red-600
+    @apply bg-defilepsie_red_secondary
 }
 .button-red {
-    @apply !bg-red-500 hover:!bg-red-600
+    @apply !bg-defilepsie_red hover:!bg-defilepsie_red_secondary
 }
 .button-gray {
     @apply !bg-gray-300 hover:!bg-[#c3c9d0]
 }
 .navitems>li>a {
-    @apply flex items-center gap-2 h-12 px-4 hover:bg-[rgba(31,41,55,0.3)] rounded-lg;
+    @apply flex items-center gap-2 h-12 px-4 hover:underline hover:bg-hover_navbar rounded-lg transition-all duration-200 ease-in-out hover:scale-105;
 }
 .hoverlist>* {
-    @apply hover:bg-gray-100 rounded-md transition duration-150;
+    @apply hover:bg-hover_navbar hover:underline rounded-md transition-all duration-200 ease-in-out hover:scale-105;
 }
+
 .hoverlist>*>a {
     @apply flex items-center p-2;
 }
@@ -78,7 +88,7 @@ input[type=file] {
     @apply w-full rounded-lg py-4 px-5 bg-gray-100
 }
 .errorlist li {
-    @apply p-1 pl-4 border-l-red-500 border-l-4 border-solid mb-2 text-red-500
+    @apply p-1 pl-4 border-l-defilepsie_red border-l-4 border-solid mb-2 text-defilepsie_red
 }
 label[for="id_remember"] {
     @apply inline-block w-auto mr-2
@@ -89,7 +99,7 @@ input[name="remember"] {
 .alert-info { @apply bg-sky-600 }
 .alert-success { @apply bg-emerald-600 }
 .alert-warning { @apply bg-orange-600 }
-.alert-danger { @apply bg-red-600 }
+.alert-danger { @apply bg-defilepsie_red_secondary }
 
 .green-dot { @apply rounded-full bg-green-500 p-1.5 }
 .gray-dot{ @apply rounded-full bg-gray-500 p-1.5 }

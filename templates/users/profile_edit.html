@@ -1,5 +1,7 @@
 {% extends 'layouts/box.html' %}
 
+{% block title %}{% if user.profile.displayname %}Edit {{ user.profile.displayname }}{% endif %}{% endblock title %}
+
 {% block content %}
 
 {% if onboarding %}

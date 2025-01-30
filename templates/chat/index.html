@@ -1,5 +1,7 @@
 {% extends 'layouts/blank.html' %}
 
+{% block title %}{% if chat_group.groupchat_name %}{{ chat_group.groupchat_name }}{% else %}Chat{% endif %}{% endblock title %}
+
 {% block content %} 
 
 <wrapper class="block max-w-2xl mx-auto my-10 px-6">
@@ -17,7 +19,7 @@
         {% endif %}
     </div>
     {% endif %}
-    <div id="chat_window" class="h-[45rem] flex flex-col bg-gray-800 rounded-2xl shadow-2xl relative p-1">
+    <div id="chat_window" class="h-[45rem] flex flex-col bg-gray-800 rounded-2xl shadow-2xl relative p-1 border border-defilepsie_blue">
         <div class="flex justify-center text-emerald-400 bg-gray-800 p-2 sticky top-0 z-10">
             {% if other_user %}
             <div id="online-icon" class="gray-dot absolute top-2 left-2"></div>
@@ -31,7 +33,7 @@
                 </div>
             </a>
             {% elif chat_group.groupchat_name %}
-            <ul id="groupchat-members" class="flex gap-4">
+            <ul id="groupchat-members" class="flex gap-4"> <!-- chat/partials/online_count.html file -->
                 {% for member in chat_group.members.all %}
                 <li>
                     <a href="{% url 'users:profile' member.username %}" class="flex flex-col text-gray-400 items-center justify-center w-20 gap-2">
@@ -47,7 +49,7 @@
             {% endif %}
         </div>
         <div id='chat_container' class="overflow-y-auto grow">
-            <ul id='chat_messages' class="flex flex-col justify-end gap-2 p-4">
+            <ul id='chat_messages' class="flex flex-col justify-end gap-2 p-4"> <!-- chat/partials/chat_message.html -->
                 {% for message in chat_messages reversed %}
                 {% include 'chat/chat_message.html' %}
                 {% endfor %}

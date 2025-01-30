@@ -101,9 +101,9 @@ def profile_emailverify(request):
 
 @login_required
 def profile_delete_view(request):
-    user = request.user
     if request.method == "POST":
         logout(request)
+        user = request.user
         user.delete()
         messages.success(request, "Account deleted, what a pity")
         return redirect("home:home-index")

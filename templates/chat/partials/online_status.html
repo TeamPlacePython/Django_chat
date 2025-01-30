@@ -1,25 +1,26 @@
 <div id="online-user-count">
     {% if online_users %}
-    <span class="bg-red-500 rounded-lg pt-1 pb-2 px-2 text-white text-sm ml-4">
+        <span class="bg-defilepsie_red rounded-lg pt-1 pb-2 px-2 text-white text-sm ml-4">
     {{ online_users.count }} online
-    </span>
+        </span>
     {% endif %}
 </div>
 
+
 <div id="online-in-chats">
     {% if online_in_chats %}
-    <div class="green-dot absolute top-2 right-2 z-20"></div>
+        <div class="green-dot absolute top-2 right-2 z-20"></div>
     {% endif %}
 </div>
+
 
 <ul id="chats-list" class="hoverlist [&>li>a]:justify-end">
     <li class="relative">
         {% if public_chat_users %}
-        <div class="green-dot absolute top-1 left-1"></div>
+            <div class="green-dot absolute top-1 left-1"></div>
         {% else %}
-        <div class="graylight-dot absolute top-1 left-1"></div>
+            <div class="graylight-dot absolute top-1 left-1"></div>
         {% endif %}
-        <a href="{% url 'chat:chat-index' %}">Public Chat</a>
     </li>
     {% for chatroom in user.chat_groups.all %}
     {% if chatroom.groupchat_name %}
@@ -50,5 +51,5 @@
                 {% endif %}
             {% endfor %}
         {% endif %}
-    {% endfor %}    
+    {% endfor %}
 </ul>
