@@ -48,7 +48,7 @@ p {
     @apply !bg-defilepsie_red hover:!bg-defilepsie_red_secondary
 }
 .button-gray {
-    @apply !bg-gray-300 hover:!bg-[#c3c9d0]
+    @apply !bg-text_navbar_secondary hover:!bg-text_navbar
 }
 .navitems>li>a {
     @apply flex items-center gap-2 h-12 px-4 hover:underline hover:bg-hover_navbar rounded-lg transition-all duration-200 ease-in-out hover:scale-105;
@@ -56,7 +56,6 @@ p {
 .hoverlist>* {
     @apply hover:bg-hover_navbar hover:underline rounded-md transition-all duration-200 ease-in-out hover:scale-105;
 }
-
 .hoverlist>*>a {
     @apply flex items-center p-2;
 }
@@ -82,10 +81,10 @@ label {
     @apply hidden
 }
 input[type=file] {
-    @apply bg-white pl-0
+    @apply bg-hover_navbar text-gray-500 border border-gray-300 rounded-lg p-2 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-white file:bg-defilepsie_blue hover:file:bg-defilepsie_blue_secondary;
 }
 .textarea, textarea, input {
-    @apply w-full rounded-lg py-4 px-5 bg-gray-100
+    @apply w-full rounded-lg py-4 px-5 bg-hover_navbar
 }
 .errorlist li {
     @apply p-1 pl-4 border-l-defilepsie_red border-l-4 border-solid mb-2 text-defilepsie_red
@@ -101,6 +100,6 @@ input[name="remember"] {
 .alert-warning { @apply bg-orange-600 }
 .alert-danger { @apply bg-defilepsie_red_secondary }
 
-.green-dot { @apply rounded-full bg-green-500 p-1.5 }
+.green-dot { @apply rounded-full bg-green-700 p-1.5 }
 .gray-dot{ @apply rounded-full bg-gray-500 p-1.5 }
 .graylight-dot{ @apply rounded-full bg-gray-300 p-1.5 }

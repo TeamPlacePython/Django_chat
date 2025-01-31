@@ -81,6 +81,21 @@ npm run tailwind-build
 python manage.py runserver
 ```
 
+<h1 align="center">Chatrooms creation</h1>
+
+It is important to create 2 chat rooms at startup. One for global chat and one to manage the number of connections.
+
+* Group name : public-chat
+* Groupchat name : Public Chat
+* Admin : ----------
+
+and
+
+* Group name : online-status
+* Groupchat name : Online status
+* Admin : ----------
+
+
 <h1 align="center">Generate Secret Key (! Important for deployment !)</h1>
 
 ```
